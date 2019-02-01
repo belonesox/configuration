@@ -63,7 +63,7 @@
     ansible_distribution_release != 'bionic'
 
 - name: Update expired apt keys
-  shell: apt-key adv --recv-keys --keyserver hkp://{{ COMMON_EDX_PPA_KEY_SERVER }}:80 {{ COMMON_EDX_PPA_KEY_ID }}
+  shell: apt-key adv --recv-keys --keyserver {{ COMMON_EDX_PPA_KEY_SERVER }} {{ COMMON_EDX_PPA_KEY_ID }}
   when: >
     ansible_distribution in common_debian_variants and
     ansible_distribution_release != 'bionic'
